@@ -21,7 +21,7 @@ var (
 	addrport    string
 
 	// channels
-	requests  chan string
+	requests  chan *Request
 	responses chan *Response
 
 	// loggers
@@ -47,7 +47,7 @@ func init() {
 func main() {
 	// create channels
 	info.Println("Initializing channels")
-	requests = make(chan string)
+	requests = make(chan *Request)
 	responses = make(chan *Response)
 
 	// create scanner

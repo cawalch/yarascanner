@@ -29,7 +29,7 @@ func ScanHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// send request for scanning
-	requests <- filename
+	requests <- &Request{RequestType: ScanRequest, RequestQuery: filename }
 
 	// wait for response, need to be fixed
 	var response *Response
